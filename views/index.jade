@@ -1,0 +1,54 @@
+extends layout
+
+block content
+	script(type='text/javascript')
+		$(document).ready(function(){
+			$(document).delegate("button[id^='submit']", "click", function() {
+				window.location.href = "/id/" + $("#username").val();
+			});
+			$(document).delegate("button[id^='create']", "click", function() {
+				$.post("/create", { text: $("#text").val() })
+				.done(function(data) {
+					if(data != undefined){
+						if(data.res != undefined){
+							$("#createnew").fadeOut(300, function(){
+								$("#createnew").html("<b>Your flashcard id is '"+data.res+"'.  Please write this down"+
+									'.  <a href="/id/'+data.res+'">Click here</a> to view your flashcard.');
+								$("#createnew").fadeIn(500);
+							});
+						}
+					}
+
+				});
+			});
+		});
+	center
+		br
+		div(class="maindiv")
+			
+			div(style="width:500px;")
+				h4 About
+				p This is a simple flashcard generator.  You enter in words and definitions line by line, and a flashcard game will be constructed for you.  Each time you re-visit the flashcard page, it will shuffle the cards into random order.  Please note this was coded in a few hours and is most likely full of bugs.  Also, very little work has gone into UI.  
+
+			br
+			h4 Enter Existing ID Number:
+			div.control-group.input-append
+				input(type="text", name="username", id="username", data-required)
+				label.add-on(for="username") ID Number
+			button(type="submit", id="submit") Login
+			br
+			br
+			div(id="createnew")
+				h4 Create New Flashcard
+				b Instructions:
+				p - Enter input line by line in the format "word: definition"
+				p - The ":" after the word is very important or else it will not parse
+				p - Make sure you press "Enter" to skip a line for each line or else the results could get weird
+				br
+				div.control-group.input-append
+					textarea(id="text", name="text", rows="10")
+					label.add-on(for="text") Input
+				button(type="submit", id="create") Create
+		br
+		br
+		p Created by <a href="http://www.devinlynch.ca">Devin Lynch</a>

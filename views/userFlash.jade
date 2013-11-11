@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	script(type='text/javascript')
+		$(document).ready(function(){
+			var content = !{JSON.stringify(variable.content)};
+			Flashcard.initializeFlashcard(content);
+		});
+	center
+		br
+		div(class="maindiv")
+			div(style="width:500px;cursor:default;", id="instructions")
+				h4 Instructions 
+				p Click on the flash card to reveal the answer, click on it again to go to the next card.  Click here to make this instructions go away.
+			br
+			div(id="card", class="card")
+				p(id="value") Sorry, this flashcard does not exist
+				p(id="key", class="key") ____________
+		a(id="skip") Skip
+		br
+		br
+		p Created By <a href="http://www.devinlynch.ca">Devin Lynch</a>

@@ -1,0 +1,107 @@
+.contentImg{
+	height:auto;
+	margin:4px;
+}
+
+body {
+    font-family: sans-serif;
+	background:#f2f2f2;
+	height:100%;
+	width:100%;
+}
+
+p{
+	margin: 0px;
+}
+
+a:link 
+{
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif
+	font-size: 13px;
+	color: #1181ea;
+	text-decoration:none;
+}
+a:visited
+{
+	color: #1181ea;
+	text-decoration:none;
+}
+a:hover 
+{
+	color: #333;
+}
+a:active
+{
+	color: #00a6cf;
+	text-decoration:underline;
+}
+
+.userImage:hover:after{
+    content: "<a class='edit_picture' href='' title=''>Edit Picture</a>";
+    position:absolute;
+    width:80px;
+    margin-right:-80px;
+    left:100%;
+    top:0%;
+}
+
+.mainDiv{
+	text-align: center;
+	margin: 0px;
+	width:100%;
+}
+
+#container {
+	padding: 5px;
+	width:100%;
+}
+
+#main
+{
+	overflow:auto;
+	padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+.centeredInDiv{
+	text-align: center;
+	vertical-align: middle;
+	/*min-height: 10em;*/
+    display: table-cell;	
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size:13px;
+	cursor:default;
+}
+
+.topBar{
+	width:100%;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #ece8e8;
+}
+
+.header{
+    display: inline-block;
+	width:100%;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #ece8e8;
+}
+
+.key{
+	color: #656565;
+}
+
+#skip{
+	cursor: default;
+}
+
+.card{
+	width: 500px;
+	height: 300px;
+	vertical-align: middle;
+	background-color: #eaeaea;
+	display: table-cell;
+	cursor:default;
+	font-size:16px;
+}
+
